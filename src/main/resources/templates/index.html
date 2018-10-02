@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layouts/layout :: head"></head>
+</head>
+<body>
+<header th:replace="layouts/layout::header"></header>
+<div class="container">
+	<main role="main" class="inner cover">
+		<h1 class="cover-heading">Tarea con Spring</h1>
+		<p class="lead"></p>
+    </main>
+	<div class="row">
+		<div class="col-lg-4">        	
+			<img class="rounded-circle" th:src="@{/img/clientes.png}" alt="Generic placeholder image" width="140" height="140">
+			<h2>TELEFONOS</h2>
+			<p>Resgistro de telefonos</p>
+			<p><a class="btn btn-secondary" th:href="@{/listartelefonos}" role="button">Detalle de Telefono »</a></p>
+		</div><!-- /.col-lg-4 -->
+		<div class="col-lg-4">        	
+			<img class="rounded-circle" th:src="@{/img/clientes.png}" alt="Generic placeholder image" width="140" height="140">
+			<h2>PERFILES USUARIOS</h2>
+			<p>Resgistro de datos de perfiles de usuario </p>
+			<p><a class="btn btn-secondary" th:href="@{/listarperfiles}" role="button">Detalle de Perfiles de Usuario »</a></p>
+		</div><!-- /.col-lg-4 -->
+		<div class="col-lg-4">        	
+			<img class="rounded-circle" th:src="@{/img/clientes.png}" alt="Generic placeholder image" width="140" height="140">
+			<h2>PERFILES USUARIOS</h2>
+			<p>Resgistro de datos de usuario </p>
+			<p><a class="btn btn-secondary" th:href="@{/listarusuarios}" role="button">Detalle de Usuario »</a></p>
+		</div><!-- /.col-lg-4 -->
+	</div>
+</div>
+<footer th:replace="layouts/layout::footer"></footer>
+</body>
+</html>

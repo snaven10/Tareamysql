@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layouts/layout :: head"></head>
+</head>
+<body>
+	<header th:replace="layouts/layout::header"></header>
+	<div class="container">
+		<form th:action="@{/formusuarios}" th:object="${usuarios}" method="post" >
+			<div class="form-group">
+		    	<label for="perf_id">Id de perfil de usuario</label>
+		    	<input type="number" class="form-control" id="usuario" placeholder="perf_id" th:field="*{perf_id}" required/>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="usuario">Usuario</label> 
+		    	<input type="text" class="form-control" id="usuario" placeholder="usuario" th:field="*{usuario}" required/>
+		    	<small th:if="${#fields.hasErrors('usuario')}" th:errors="*{usuario}" class="form-text text-danger"></small>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="nombre">Nombre</label> 
+		    	<input type="text" class="form-control" id="nombre" placeholder="nombre" th:field="*{nombre}" required/>
+		    	<small th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="form-text text-danger"></small>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="password">Password</label> 
+		    	<input type="password" class="form-control" id="password" placeholder="password" th:field="*{password}" required/>
+		    	<small th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="form-text text-danger"></small>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="fec_ingreso">Password</label> 
+		    	<input type="date" class="form-control" id="fec_ingreso" placeholder="fec_ingreso" th:field="*{fec_ingreso}" required/>
+		    	<small th:if="${#fields.hasErrors('fec_ingreso')}" th:errors="*{fec_ingreso}" class="form-text text-danger"></small>
+		  	</div>
+		  	<div class="form-group"> 
+		    	<label for="cod_estado">Estado</label>
+		    	<select id="cod_estado" class="form-control" th:field="*{cod_estado}">
+				  <option value="Activo">Activo</option>
+				</select>
+		    	<!--<input type="text" class="form-control" id="cod_estado" placeholder="Estado" th:field="*{cod_estado}" required/> -->
+		    	<small th:if="${#fields.hasErrors('cod_estado')}" th:errors="*{cod_estado}" class="form-text text-danger"></small>
+		  	</div>
+		  	<input type="submit" value="Guardar" class="btn btn-primary"/>
+		  	<a th:href="@{/listarusuarios}" class="btn btn-secondary">Regresar</a>
+			<input type="hidden" id="usu_id" th:field="*{usu_id}">
+		</form>
+	</div>
+</body>
+</html>

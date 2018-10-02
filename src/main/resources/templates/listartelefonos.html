@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layouts/layout :: head"></head>
+</head>
+<body>
+<header th:replace="layouts/layout::header"></header>
+<div class="container">
+	<table class="table">
+ <thead>
+  <tr>
+     <th scope="col">ID</th>
+     <th scope="col">Documento de cliente</th>
+     <th scope="col">Telefono</th>
+     <th scope="col">Estado</th>
+  </tr>
+ </thead>
+ <tbody>
+ 
+  <tr th:each="telefonos: ${telefonos}">     
+     <td th:text="${telefonos.tel_id}"/>
+     <td th:text="${telefonos.cli_num_documento}" />
+     <td th:text="${telefonos.telefono}" />
+     <td th:text="${telefonos.cod_estado}" />
+     <td> <a th:href="@{/formtelefonos/} + ${telefonos.tel_id}" th:text="'Editar'" 
+             class="btn btn-primary btn-xs" ></a></td>
+     <td> <a th:href="@{/eliminartelefonos/} + ${telefonos.tel_id}" th:text="'Eliminar'" 
+             class="btn btn-danger btn-xs" 
+             onclick="return confirm('Estas seguro?')" ></a></td>
+  </tr>
+ </tbody>
+</table>
+</div>
+
+<a th:href="@{/formtelefonos}" class="btn btn-primary">Crear Telefono</a>
+<a th:href="@{/}" class="btn btn-secondary">Regresar</a>
+<footer th:replace="layouts/layout::footer"></footer>
+</body>
+</html>
